@@ -1,0 +1,145 @@
+/* Importing font... */
+@font-face {
+    font-family: "cgfont";
+    src: url("CenturyGothic.ttf") format("ttf");
+}
+/* Generalities */
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "cgfont" , sans-serif;
+}
+.merch-name{
+    display: none;
+}
+body{
+    background-color: black;
+    color: white;
+}
+main{
+    margin: 0 10% 0 10%;
+}
+header{
+    height:85vh;
+}
+/* Image formatting */
+
+.mobile-header{
+width: 80vw;
+margin: auto;
+}
+
+.about-img{
+    width: 100%;
+    height: auto;
+}
+/* Text formatting */
+h1{
+    text-align: center;
+}
+h3{
+text-align: center;
+}
+.name,.age,.role,.nationality{
+    text-align: center;
+}
+
+/* Navigation */
+.burger-menu{
+    text-align: center;
+    font-size:36px;
+    cursor:pointer;
+    margin:auto;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    text-align:center;
+    background-color: black;
+}
+
+.sidenav a{
+    padding: 8px 8px 8px 32px;
+    display: block;
+    transition: 0.3s;
+}
+
+.closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+}
+
+a,a:active,a:visited{
+    text-decoration: none;
+    text-align: center;
+    color: white;    
+}
+a:hover,a:active{
+    color: red;
+}
+
+/* Grid Layout */
+body{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-areas: 
+    "logo burger"
+    "main main"
+    "footer footer"; 
+}
+
+.burger-menu{
+    grid-area: burger;
+}
+
+.logo{
+    grid-area: logo;
+}
+
+#main{
+    grid-area: main;
+}
+
+#contact{
+    grid-area: footer;
+}
+
+header{
+    display:grid;
+    grid-template-rows: 3fr 1fr;
+    align-items: center;
+    justify-items: center;
+}
+
+/* Layout */
+
+.member{
+    margin-top: 10%;
+}
+
+/* SVG */
+.logo svg{
+height: 100px;
+width: 80px;
+margin: auto;
+}
+@media (min-width: 480px){
+nav{
+    display: grid;
+    grid-template-columns: repeat(7,1fr);
+    align-items: center;
+    background-color: black;
+}
+}
