@@ -23,11 +23,14 @@ function showMembers(data){
 let parent = document.querySelector('#main');
 let template = document.querySelector('#memberTemplate').content;
 if(screen.width < 480){
-parent.innerHTML = "<header><img class=\"mobile-header\" src=\"imgs/logo-mobile.png\" alt=\"\"><img class=\'about-arrow\' src=\"imgs/about-arrow.png\" onClick=\'scrollToAbout()\'></header><h1>About us</h1><img class=\"about-img\" src=\'imgs/about-photo.jpg\'><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lacus velit, dictum eu porta eu, ultricies et enim. Proin luctus arcu quis ipsum ullamcorper vestibulum. Fusce vel tortor velit. Donec consectetur tincidunt nisl, finibus congue urna posuere nec. Aenean pellentesque feugiat dignissim. Curabitur quis pretium massa. Suspendisse lorem dui, auctor a posuere non, scelerisque vitae nisl. Praesent laoreet turpis a venenatis viverra. Nunc aliquet gravida turpis vitae finibus. Nam in tortor fringilla, molestie tortor ac, sagittis sem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tincidunt nec eros faucibus tincidunt. Pellentesque libero dui, volutpat at porttitor id, auctor in dui.</p>";
+parent.innerHTML = "<header><img class=\"mobile-header\" src=\"imgs/logo-mobile.png\" alt=\"\"><img class=\'about-arrow\' src=\"imgs/about-arrow.png\" onClick=\'scrollToAbout()\'></header><h1 class=\"section-header\">ABOUT US</h1><img class=\"about-img\" src=\'imgs/about-photo.jpg\'><p class=\'about-text\'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lacus velit, dictum eu porta eu, ultricies et enim. Proin luctus arcu quis ipsum ullamcorper vestibulum. Fusce vel tortor velit. Donec consectetur tincidunt nisl, finibus congue urna posuere nec. Aenean pellentesque feugiat dignissim. Curabitur quis pretium massa. Suspendisse lorem dui, auctor a posuere non, scelerisque vitae nisl. Praesent laoreet turpis a venenatis viverra. Nunc aliquet gravida turpis vitae finibus. Nam in tortor fringilla, molestie tortor ac, sagittis sem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tincidunt nec eros faucibus tincidunt. Pellentesque libero dui, volutpat at porttitor id, auctor in dui.</p><section id=\'member-section\'></section>";
 }
 else{
-parent.innerHTML = "<header><img class=\"desktop-header\" src=\"imgs/landing-photo.jpg\" alt=\"\"><img class=\'about-arrow\' src=\"imgs/about-arrow.png\" onClick=\'scrollToAbout()\'></header><h1>About us</h1><img class=\"about-img\" src=\'imgs/about-photo.jpg\'><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lacus velit, dictum eu porta eu, ultricies et enim. Proin luctus arcu quis ipsum ullamcorper vestibulum. Fusce vel tortor velit. Donec consectetur tincidunt nisl, finibus congue urna posuere nec. Aenean pellentesque feugiat dignissim. Curabitur quis pretium massa. Suspendisse lorem dui, auctor a posuere non, scelerisque vitae nisl. Praesent laoreet turpis a venenatis viverra. Nunc aliquet gravida turpis vitae finibus. Nam in tortor fringilla, molestie tortor ac, sagittis sem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tincidunt nec eros faucibus tincidunt. Pellentesque libero dui, volutpat at porttitor id, auctor in dui.</p>";   
+parent.innerHTML = "<header><img class=\"desktop-header\" src=\"imgs/landing-photo.jpg\" alt=\"\"><img class=\'about-arrow\' src=\"imgs/about-arrow.png\" onClick=\'scrollToAbout()\'></header><h1 class=\"section-header\">ABOUT US</h1><img class=\"about-img\" src=\'imgs/about-photo.jpg\'><p class=\'about-text\'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lacus velit, dictum eu porta eu, ultricies et enim. Proin luctus arcu quis ipsum ullamcorper vestibulum. Fusce vel tortor velit. Donec consectetur tincidunt nisl, finibus congue urna posuere nec. Aenean pellentesque feugiat dignissim. Curabitur quis pretium massa. Suspendisse lorem dui, auctor a posuere non, scelerisque vitae nisl. Praesent laoreet turpis a venenatis viverra. Nunc aliquet gravida turpis vitae finibus. Nam in tortor fringilla, molestie tortor ac, sagittis sem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tincidunt nec eros faucibus tincidunt. Pellentesque libero dui, volutpat at porttitor id, auctor in dui.</p><section id=\'member-section\'></section>";   
 }
+
+let otherParent = document.querySelector('#member-section');
+
 data.forEach(member=>{
 
     //    console.log(member);
@@ -45,7 +48,7 @@ data.forEach(member=>{
     role.textContent = member.acf.role;
     nationality.textContent = member.acf.nationality;
 
-parent.appendChild(clone);
+otherParent.appendChild(clone);
 });
 }
 
@@ -53,8 +56,12 @@ function showAlbums(data){
  //console.log(data);
  let parent = document.querySelector('#main');
  let template = document.querySelector('#albumTemplate').content;
- 
-data.forEach(album=>{
+
+ parent.innerHTML = "<h1 class=\"section-header\">ALBUMS</h1>"
+
+parent.className = 'album-main';
+
+ data.forEach(album=>{
   //console.log(album);
     
   let clone = template.cloneNode(true);
@@ -79,17 +86,21 @@ function showEvents(data){
  let parent = document.querySelector('#main');
  let template = document.querySelector('#eventTemplate').content;
  
+ parent.innerHTML = "<h1 class=\"section-header\">EVENTS</h1>"
+ 
+parent.className = 'event-main';
+
  data.forEach(event=>{
      let clone = template.cloneNode(true);
      let eventImg = clone.querySelector('.eventImg');
      let eventTitle = clone.querySelector('.event-title');
-     let eventDescription = clone.querySelector('.event-description');
+     //let eventDescription = clone.querySelector('.event-description');
      let eventDate = clone.querySelector('.date span');
      let eventLocation = clone.querySelector('.location span');
 
      eventImg.setAttribute('src',event._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url);
      eventTitle.textContent = event.title.rendered;
-     eventDescription.innerHTML = event.content.rendered;
+    // eventDescription.innerHTML = event.content.rendered;
      eventDate.textContent =event.acf.date.slice(6,8) + '/' + event.acf.date.slice(4,6) + '/' + event.acf.date.slice(0,4);
      eventLocation.textContent = event.acf.location;
 
@@ -101,6 +112,10 @@ function showMerch(data){
     //console.log(data);
 let parent = document.querySelector('#main');
 let template = document.querySelector('#merchandiseTemplate').content;
+
+parent.innerHTML = "<h1 class=\"section-header\">MERCHANDISE</h1>"
+
+parent.className = 'merch-main';
 
 data.forEach(merch=>{
 let clone = template.cloneNode(true);
@@ -121,6 +136,10 @@ function showMedia(data){
     let parent = document.querySelector('#main');
     let photoTemplate = document.querySelector('#photoTemplate').content;
     let videoTemplate = document.querySelector('#videoTemplate').content;
+
+    parent.innerHTML = "<h1 class=\"section-header\">MEDIA</h1>"
+    
+parent.className = 'media-main';
 
     data.forEach(media=>{
 let clone = photoTemplate.cloneNode(true);
@@ -183,22 +202,23 @@ function showSVG(data){
 if(screen.width < 480){
 document.querySelector('body').appendChild(document.querySelector('.logo'));
 }
-
 //Arrow scroll
-function scrollToAbout(){    document.querySelector('main .about-img').scrollIntoView({ 
+function scrollToAbout(){    document.querySelector('main .about-text').scrollIntoView({ 
     behavior: 'smooth' 
   });
 }
 
 //Burger menu
-document.querySelector('.burger-menu').addEventListener('click',openNav);
-
-document.querySelector('.sidenav').addEventListener('click',closeNav);
-
-function openNav() {
-    document.querySelector('.sidenav').style.width = "100%";
-}
-
-function closeNav() {
-    document.querySelector('.sidenav').style.width = "0";
+if(screen.width < 480){
+    document.querySelector('.burger-menu').addEventListener('click',openNav);
+    
+    document.querySelector('.sidenav').addEventListener('click',closeNav);
+    
+    function openNav() {
+        document.querySelector('.sidenav').style.width = "100%";
+    }
+    
+    function closeNav() {
+        document.querySelector('.sidenav').style.width = "0";
+    }
 }

@@ -1,7 +1,7 @@
 /* Importing font... */
 @font-face {
     font-family: "cgfont";
-    src: url("CenturyGothic.ttf") format("ttf");
+    src: url("/CenturyGothic.ttf");
 }
 /* Generalities */
 
@@ -9,7 +9,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: "cgfont" , sans-serif;
+    font-family: cgfont;        
 }
 .merch-name{
     display: none;
@@ -22,12 +22,31 @@ main{
     margin: 0 10% 0 10%;
 }
 header{
-    height:85vh;
+    height:80vh;
 }
+footer{
+    margin-top: 1em;
+    padding: 2em;
+}
+h1{
+    padding: 0.5em;
+}
+.about-text{
+    padding: 1em;
+}
+.section-header{
+    color:#901E37;
+}
+/* Gestalt closure bckgrclr */
+
+header,.about-text,.member,.album,.event,.merchandise,.media,footer{
+    background-color: rgba(255,255,255,0.1);    
+}
+
 /* Image formatting */
 
 .mobile-header{
-width: 80vw;
+width: 70%;
 margin: auto;
 }
 
@@ -35,16 +54,30 @@ margin: auto;
     width: 100%;
     height: auto;
 }
+.social-media img{
+    height: 2em;
+}
+.merchImg{
+    width: 100%;
+}
+.mediaImg, .media video{
+    width: 100%;
+}
+.albumImg{
+    width: 100%;
+}
 /* Text formatting */
 h1{
+    font-size: 1.5em;
     text-align: center;
 }
-h3{
-text-align: center;
-}
-.name,.age,.role,.nationality{
+.name, .age, .role, .nationality, .date, .location{
     text-align: center;
 }
+.about-text,.name{
+    margin-top: 1em;
+}
+
 
 /* Navigation */
 .burger-menu{
@@ -53,7 +86,7 @@ text-align: center;
     cursor:pointer;
     margin:auto;
 }
-
+@media (max-width:480px){
 .sidenav {
     height: 100%;
     width: 0;
@@ -73,7 +106,7 @@ text-align: center;
     display: block;
     transition: 0.3s;
 }
-
+}
 .closebtn {
     position: absolute;
     top: 0;
@@ -90,7 +123,7 @@ a:hover,a:active{
     color: red;
 }
 
-/* Grid Layout */
+/* Layout */
 body{
     display: grid;
     grid-template-columns: repeat(2,1fr);
@@ -122,11 +155,54 @@ header{
     align-items: center;
     justify-items: center;
 }
-
-/* Layout */
+footer{
+    display: grid;
+    justify-items: center;
+    grid-gap:1em;
+}
 
 .member{
-    margin-top: 10%;
+    display: grid;
+    padding: 1em;
+    justify-items: center;
+    margin-top:5%;   
+}
+.album{
+    display: grid;
+    justify-items: center;
+    padding: 1em;
+    margin-top:5%;   
+}
+.album-description{
+    margin-top:5%;
+}
+.event{
+    display: grid;
+    justify-items: center;
+    padding: 1em;
+    grid-gap: 1em;
+    margin-top: 5%;
+}
+.merchandise{
+    display: grid;
+    justify-items: center;
+    grid-gap:1em;
+    padding: 1em; 
+    margin-top:5%;   
+}
+.media{
+    display: grid;
+    padding: 1em;       
+}
+.contact-info{
+    display: grid; 
+    justify-items: center;
+    grid-gap:0.5em;
+}
+.social-media{
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    grid-gap:0.5em;
 }
 
 /* SVG */
@@ -136,10 +212,85 @@ width: 80px;
 margin: auto;
 }
 @media (min-width: 480px){
-nav{
+    body{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        grid-template-areas: 
+        "nav nav"
+        "main main"
+        "footer footer"; 
+    }
+    .sidenav{
     display: grid;
     grid-template-columns: repeat(7,1fr);
     align-items: center;
     background-color: black;
+
+    grid-area: nav;
+    
+    margin: 0;
+    padding: 0;
+    width:100%;
+    height: auto;
+    position: static;
+}
+a.logo{
+    grid-area:auto;
+}
+header{
+    height: 85vh;
+}
+.burger-menu{
+    display: none;
+}
+a.closebtn{
+    display: none;
+}
+#member-section{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 0.5em;
+}
+.album{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows:1fr 1fr 1fr 4fr;
+    grid-template-areas: 
+    "aImg aTitle"
+    "aImg rDate"
+    "aImg noofSongs"
+    "aImg aDescr";
+}
+.albumImg{
+    grid-area: aImg;
+}
+.album-title{
+    grid-area: aTitle;
+}
+.album-description{
+    grid-area:aDescr;
+
+    padding: 1em;
+    text-align: center;
+}
+.release-date{
+    grid-area:rDate;
+}
+.no-of-songs{
+    grid-area: noofSongs;
+}
+.event-main{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 1em;
+}
+.event-main .section-header{
+    grid-column: 1/4;
+}
+h1{
+    font-size: 2em;
+}
+.desktop-header{
+    width: 90%;
 }
 }
