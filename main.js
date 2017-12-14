@@ -203,9 +203,21 @@ if(screen.width < 480){
 document.querySelector('body').appendChild(document.querySelector('.logo'));
 }
 //Arrow scroll
-function scrollToAbout(){    document.querySelector('main .about-text').scrollIntoView({ 
-    behavior: 'smooth' 
+function scrollToAbout(){   
+     document.querySelector('main .section-header')
+        .scrollIntoView({ 
+    behavior: 'smooth',
+    block: "start"
   });
+}
+
+//Contact scroll
+function scrollToContact(){   
+    document.querySelector('#contact')
+       .scrollIntoView({ 
+   behavior: 'smooth',
+   block: 'end'
+ });
 }
 
 //Burger menu

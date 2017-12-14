@@ -287,6 +287,27 @@ a.closebtn{
 .event-main .section-header{
     grid-column: 1/4;
 }
+.media-main{
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 1em;
+}
+.media-main .section-header{
+    grid-column: 1/4;
+}
+.media{
+    display: grid;
+    justify-items: center;
+    align-items: center;
+}
+.merch-main{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 1em;    
+}
+.merch-main .section-header{
+    grid-column: 1/4;
+}
 h1{
     font-size: 2em;
 }
