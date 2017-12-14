@@ -1,20 +1,30 @@
 function getMembers(){
-    fetch('http://calindima.com/wordpress/wp-json/wp/v2/member?_embed&per_page=100').then(e=>e.json()).then(showMembers);
+    fetch('http://calindima.com/wordpress/wp-json/wp/v2/member?_embed&per_page=100')
+    .then(e=>e.json())
+    .then(showMembers);
 }
 function getAlbums(){
-    fetch('http://calindima.com/wordpress/wp-json/wp/v2/album?_embed&per_page=100').then(e=>e.json()).then(showAlbums);
+    fetch('http://calindima.com/wordpress/wp-json/wp/v2/album?_embed&per_page=100')
+    .then(e=>e.json())
+    .then(showAlbums);
 }
 
 function getEvents(){
-    fetch('http://calindima.com/wordpress/wp-json/wp/v2/band_event?_embed&per_page=100').then(e=>e.json()).then(showEvents);
+    fetch('http://calindima.com/wordpress/wp-json/wp/v2/band_event?_embed&per_page=100')
+    .then(e=>e.json())
+    .then(showEvents);
 }
 
 function getMerch(){
-    fetch('http://calindima.com/wordpress/wp-json/wp/v2/merchandise?_embed&per_page=100').then(e=>e.json()).then(showMerch);
+    fetch('http://calindima.com/wordpress/wp-json/wp/v2/merchandise?_embed&per_page=100')
+    .then(e=>e.json())
+    .then(showMerch);
 }
 
 function getMedia(){
-    fetch('http://calindima.com/wordpress/wp-json/wp/v2/media?per_page=100&what_media=77').then(e=>e.json()).then(showMedia);
+    fetch('http://calindima.com/wordpress/wp-json/wp/v2/media?per_page=100&what_media=77')
+    .then(e=>e.json())
+    .then(showMedia);
 }
 
 function showMembers(data){
@@ -30,6 +40,8 @@ parent.innerHTML = "<header><img class=\"desktop-header\" src=\"imgs/landing-pho
 }
 
 let otherParent = document.querySelector('#member-section');
+
+parent.className = 'about-main';
 
 data.forEach(member=>{
 
@@ -74,7 +86,8 @@ parent.className = 'album-main';
       albumImg.setAttribute('src',album._embedded['wp:featuredmedia'][0].media_details.sizes.medium.source_url);
       albumTitle.textContent = album.title.rendered;
       albumDescription.innerHTML = album.content.rendered;
-      releaseDate.textContent = album.acf.release_date.slice(6,8) + '/' + album.acf.release_date.slice(4,6) + '/' + album.acf.release_date.slice(0,4);
+      releaseDate.textContent = album.acf.release_date.slice(6,8) + '/' 
+      + album.acf.release_date.slice(4,6) + '/' + album.acf.release_date.slice(0,4);
       noOfSongs.textContent = album.acf.number_of_songs;
 
 parent.appendChild(clone);      
@@ -202,6 +215,7 @@ function showSVG(data){
 if(screen.width < 480){
 document.querySelector('body').appendChild(document.querySelector('.logo'));
 }
+
 //Arrow scroll
 function scrollToAbout(){   
      document.querySelector('main .section-header')
