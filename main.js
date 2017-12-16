@@ -33,10 +33,10 @@ function showMembers(data){
 let parent = document.querySelector('#main');
 let template = document.querySelector('#memberTemplate').content;
 if(screen.width < 480){
-parent.innerHTML = "<header><img class=\"mobile-header\" src=\"imgs/logo-mobile.png\" alt=\"\"><img class=\'about-arrow\' src=\"imgs/about-arrow.png\" onClick=\'scrollToAbout()\'></header><h1 class=\"section-header\">ABOUT US</h1><img class=\"about-img\" src=\'imgs/about-photo.jpg\'><p class=\'about-text\'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lacus velit, dictum eu porta eu, ultricies et enim. Proin luctus arcu quis ipsum ullamcorper vestibulum. Fusce vel tortor velit. Donec consectetur tincidunt nisl, finibus congue urna posuere nec. Aenean pellentesque feugiat dignissim. Curabitur quis pretium massa. Suspendisse lorem dui, auctor a posuere non, scelerisque vitae nisl. Praesent laoreet turpis a venenatis viverra. Nunc aliquet gravida turpis vitae finibus. Nam in tortor fringilla, molestie tortor ac, sagittis sem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tincidunt nec eros faucibus tincidunt. Pellentesque libero dui, volutpat at porttitor id, auctor in dui.</p><section id=\'member-section\'></section>";
+parent.innerHTML = "<header><img class=\"mobile-header\" src=\"imgs/logo-mobile.png\" alt=\"\"><img class=\'about-arrow\' src=\"imgs/about-arrow.png\" onClick=\'scrollToAbout()\'></header><h1 class=\"section-header\">ABOUT US</h1><img class=\"about-img\" src=\'imgs/about-photo.jpg\'><p class=\'about-text\'>Before the Moon is a newly formed metal group from Copenhagen having an all international line up. The band was formed in 2017 by members Andrius, Alexandru, Steven, Ewerton and Paul. With a great passion for music and a desire to evolve and develop their skills, they decided to get together and start working for what they believe it will be the next big metal group coming out from Denmark. With such a multicultural background and a desire to prove themselves and the others that they can among the best, the band will start and create its own music and have its own feel and style. Groups like Iron Maiden, Black Sabbath, Pink Floyd, Queen or Pantera have had big impact on the band’s members so their influence might come through their own songs.Their mission is to become a professional metal band who offers good quality music and a solid brand recognizable all over Denmark and, in a few years, all over the world.</p><section id=\'member-section\'></section>";
 }
 else{
-parent.innerHTML = "<header><img class=\"desktop-header\" src=\"imgs/landing-photo.jpg\" alt=\"\"><img class=\'about-arrow\' src=\"imgs/about-arrow.png\" onClick=\'scrollToAbout()\'></header><h1 class=\"section-header\">ABOUT US</h1><img class=\"about-img\" src=\'imgs/about-photo.jpg\'><p class=\'about-text\'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lacus velit, dictum eu porta eu, ultricies et enim. Proin luctus arcu quis ipsum ullamcorper vestibulum. Fusce vel tortor velit. Donec consectetur tincidunt nisl, finibus congue urna posuere nec. Aenean pellentesque feugiat dignissim. Curabitur quis pretium massa. Suspendisse lorem dui, auctor a posuere non, scelerisque vitae nisl. Praesent laoreet turpis a venenatis viverra. Nunc aliquet gravida turpis vitae finibus. Nam in tortor fringilla, molestie tortor ac, sagittis sem. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tincidunt nec eros faucibus tincidunt. Pellentesque libero dui, volutpat at porttitor id, auctor in dui.</p><section id=\'member-section\'></section>";   
+parent.innerHTML = "<header><img class=\"desktop-header\" src=\"imgs/landing-photo.jpg\" alt=\"\"><img class=\'about-arrow\' src=\"imgs/about-arrow.png\" onClick=\'scrollToAbout()\'></header><h1 class=\"section-header\">ABOUT US</h1><img class=\"about-img\" src=\'imgs/about-photo.jpg\'><p class=\'about-text\'>Before the Moon is a newly formed metal group from Copenhagen having an all international line up. The band was formed in 2017 by members Andrius, Alexandru, Steven, Ewerton and Paul. With a great passion for music and a desire to evolve and develop their skills, they decided to get together and start working for what they believe it will be the next big metal group coming out from Denmark. With such a multicultural background and a desire to prove themselves and the others that they can among the best, the band will start and create its own music and have its own feel and style. Groups like Iron Maiden, Black Sabbath, Pink Floyd, Queen or Pantera have had big impact on the band’s members so their influence might come through their own songs.Their mission is to become a professional metal band who offers good quality music and a solid brand recognizable all over Denmark and, in a few years, all over the world.</p><section id=\'member-section\'></section>";   
 }
 
 let otherParent = document.querySelector('#member-section');
@@ -233,7 +233,14 @@ function scrollToContact(){
    block: 'end'
  });
 }
-
+//Up up and away! scroll
+function scrollToMenu(){   
+    document.querySelector('.sidenav')
+       .scrollIntoView({ 
+   behavior: 'smooth',
+   block: 'start'
+ });
+}
 //Burger menu
 if(screen.width < 480){
     document.querySelector('.burger-menu').addEventListener('click',openNav);
@@ -246,5 +253,19 @@ if(screen.width < 480){
     
     function closeNav() {
         document.querySelector('.sidenav').style.width = "0";
+    }
+}
+
+//Go up Arrow
+document.querySelector('div.go-up').addEventListener('click',scrollToMenu);
+
+window.onscroll = function(){
+    if(document.body.scrollTop > (screen.height-100) || document.documentElement.scrollTop > (screen.height-100)){
+        document.querySelector('div.go-up')
+        .style.display = 'block';
+    }
+    else{ 
+        document.querySelector('div.go-up')
+        .style.display = 'none';
     }
 }
