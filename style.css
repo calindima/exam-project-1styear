@@ -318,17 +318,19 @@ h1{
 .desktop-header{
     width: 80%;
 }
-
+img.go-up{
+    width: 4em;
 }
-.go-up{
+img.go-up:hover{
+    transform: scale(1.5);
+}
+}
+img.go-up{
     display: none;
     position: fixed;
     z-index: 1;
     bottom: 3em;
     right:0.5em;
     cursor: pointer;
-    font-size: 1.5em;
-    padding: 0.5em;
-    border-radius: 20%;
-    background-color: rgba(255,255,255,0.1);
+    width: 3em;
 }

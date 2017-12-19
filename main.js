@@ -257,15 +257,15 @@ if(screen.width < 480){
 }
 
 //Go up Arrow
-document.querySelector('div.go-up').addEventListener('click',scrollToMenu);
+document.querySelector('img.go-up').addEventListener('click',scrollToMenu);
 
 window.onscroll = function(){
     if(document.body.scrollTop > (screen.height-100) || document.documentElement.scrollTop > (screen.height-100)){
-        document.querySelector('div.go-up')
+        document.querySelector('img.go-up')
         .style.display = 'block';
     }
     else{ 
-        document.querySelector('div.go-up')
+        document.querySelector('img.go-up')
         .style.display = 'none';
     }
 }
