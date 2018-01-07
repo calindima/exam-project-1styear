@@ -47,7 +47,9 @@ header,.about-text,.member,.album,.event,.merchandise,.media,footer{
 }
 
 /* Image formatting */
-
+.profileImg{
+    filter: grayscale(100%);
+}
 .mobile-header{
 width: 70%;
 margin: auto;
@@ -116,14 +118,14 @@ h1{
     font-size: 36px;
 }
 
-a,a:visited{
+a, a:visited{
     text-decoration: none;
     text-align: center;
     color: white;    
     cursor: pointer;
 }
 a:hover, a:active{
-    color: red;
+    color: #901E37;
 }
 
 /* Layout */
