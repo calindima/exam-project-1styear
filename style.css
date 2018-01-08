@@ -233,12 +233,13 @@ margin: auto;
 
     grid-area: nav;
     
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
-    width:100%;
+    width:70%;
     height: auto;
     position: static;
 }
+
 a.logo{
     grid-area:auto;
 }
